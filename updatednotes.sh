@@ -2,6 +2,7 @@
 #
 # I probably need a GPL license header here...
 #
+# The script currently prints out the result on the command line
 
 #SMP Username and password
 #SMP_USER=S0012345678
@@ -10,6 +11,8 @@ SMP_USER=
 SMP_PASS=
 
 #we should add a check that prevents script execution, if user and password are missing
+# if SMP_USER or SMP_PASS is empty
+#   notify user and abort execution
 
 #URL to fetch information from (SAP Service Marketplace)
 NOTES_URL='https://service.sap.com/sap/support/notes'
@@ -94,6 +97,9 @@ if [ "$ERROR" = "0" ]; then
 else
 	echo $ERROR
 fi
+
+# print the list on the console
+echo ${formatted_result}
 
 
 #the next section would be something for further enhancement
